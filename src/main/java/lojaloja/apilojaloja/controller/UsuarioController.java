@@ -29,7 +29,7 @@ public class UsuarioController {
 
 
         usuarioRepository.saveAndFlush(new Usuario(x));
-        enderecoRepository.saveAndFlush(new Endereco(x));
+        enderecoRepository.saveAndFlush(new Endereco(x.endereco()));
 
 
 
