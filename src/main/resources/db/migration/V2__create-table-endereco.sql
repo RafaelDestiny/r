@@ -9,9 +9,9 @@ create table endereco(
     numero varchar(100)  not null,
     cep varchar(100) not null,
     complemento varchar(100) not null,
-    usuario_Id bigint not null,
+    usuario_id bigint not null,
 
-    FOREIGN KEY (usuario_Id) REFERENCES usuario (id) ,
+   constraint fk_endereco_usuario_id foreign key(usuario_id) references usuario(id),
 
     primary key(id)
 

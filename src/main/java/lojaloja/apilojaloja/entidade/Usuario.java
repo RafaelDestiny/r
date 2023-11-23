@@ -1,9 +1,10 @@
 package lojaloja.apilojaloja.entidade;
 
 import jakarta.persistence.*;
-import lojaloja.apilojaloja.record.EnderecoRecord;
-import lojaloja.apilojaloja.record.UsuarioRecord;
+
 import lombok.*;
+
+
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import lombok.*;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "usuario")
+
 public class Usuario {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,48 +21,23 @@ public class Usuario {
     private Long id;
 
     private String nome;
+
+    @Column(name = "sobre_Nome")
     private String sobreNome;
+    @Column(name = "data_De_Criacao")
     private String dataDeCriacao;
-    private String numeroCelular;
+
+    private String numero;
+
     private String email;
-    @OneToOne( mappedBy = "usuarioId", cascade = CascadeType.PERSIST)
+
+
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
     private Endereco endereco;
 
 
 
-
-
-
-    public Usuario(UsuarioRecord x) {
-
-        this.id = x.id();
-        this.nome = x.nome();
-        this.sobreNome = x.sobreNome();
-        this.dataDeCriacao = x.dataDeCriacao();
-        this.numeroCelular = x.numeroCelular();
-        this.email = x.email();
-        this.endereco = new Endereco(x.endereco());
-
-
-    }
-
-    public void setEndereco(Endereco endereco) {
-
-
-        this.endereco = endereco;
-    }
-
-    public Endereco getEndereco() {
-
-
-        return endereco;
-    }
-
-    public void setId(Long id) {
-
-
-        this.id = id;
-    }
 
 
 

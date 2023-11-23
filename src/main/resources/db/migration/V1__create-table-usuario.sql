@@ -5,7 +5,7 @@ create table usuario(
     nome varchar(100) not null,
     sobre_Nome varchar(100)  not null,
     data_De_Criacao varchar(100) not null,
-    numero_Celular varchar(100)not null,
+    numero varchar(100)not null,
     email varchar(100) not null,
 
 
